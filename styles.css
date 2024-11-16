@@ -40,9 +40,9 @@ main {
 }
 
 .profile-photo {
-    max-width: 150px;
+    max-width: 25px;
     border-radius: 50%;
-    margin: 20px 0;
+    margin: 2px 2px;
 }
 
 section {
