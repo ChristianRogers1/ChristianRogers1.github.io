@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications - Christian Rogers</title>
+  <meta name="description" content="Research publications by Christian Rogers on mechanistic interpretability, medical AI, and stroke rehabilitation.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html" class="active">Publications</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Publications</h1>
+      <p>A list of my research publications. Click on a title to view more details about each paper.</p>
+    </div>
+  </div>
+
+  <!-- Publications List -->
+  <section class="section">
+    <div class="container">
+      <div class="publication-list">
+
+        <div class="publication-item">
+          <div class="publication-year">2025</div>
+          <h3>
+            <a href="publications/stroke-recovery-assessment.html">Enhancing Stroke Recovery Assessment: A Machine Learning Approach to Real-World Hand Function Analysis</a>
+          </h3>
+          <div class="publication-authors">Ukey et al.</div>
+          <div class="publication-links">
+            <a href="publications/stroke-recovery-assessment.html">Details</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="publications.html">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    }
+  </script>
+
+</body>
+</html>

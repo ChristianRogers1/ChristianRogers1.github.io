@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhancing Stroke Recovery Assessment - Christian Rogers</title>
+  <meta name="description" content="A machine learning approach to real-world hand function analysis for stroke recovery assessment.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../publications.html" class="active">Publications</a></li>
+        <li><a href="../cv.html">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Publication Detail -->
+  <div class="pub-detail">
+    <a href="../publications.html" class="back-link">&larr; Back to Publications</a>
+
+    <h1>Enhancing Stroke Recovery Assessment: A Machine Learning Approach to Real-World Hand Function Analysis</h1>
+
+    <div class="pub-meta">
+      <p class="pub-authors">Ukey et al.</p>
+      <p class="pub-venue">2025</p>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      This work presents a machine learning approach to assessing stroke recovery through analysis of real-world hand function data. By leveraging sensor data collected in naturalistic settings rather than controlled clinical environments, we develop methods that provide a more accurate and comprehensive picture of a patient's functional recovery trajectory.
+    </p>
+
+    <h2>Key Contributions</h2>
+    <ul>
+      <li>Development of ML models for analyzing real-world hand function data from stroke survivors</li>
+      <li>Demonstration that real-world assessment provides complementary insights to standard clinical evaluations</li>
+      <li>A framework for continuous, remote monitoring of stroke recovery progress</li>
+      <li>Validation of the approach against established clinical outcome measures</li>
+    </ul>
+
+    <h2>Relevance</h2>
+    <p>
+      Traditional stroke recovery assessment relies on periodic clinical visits where patients perform standardized tasks in controlled settings. This approach captures only a snapshot of function and may not reflect how patients use their affected hand in daily life. Our machine learning approach analyzes data from wearable sensors during everyday activities, offering clinicians a richer, more ecologically valid view of recovery that can inform personalized treatment plans.
+    </p>
+    <p>
+      This research was conducted in collaboration with the Neural Plasticity, Rehabilitation &amp; Movement Dynamics (NERD) Lab under Dr. Sethi at the University of Utah.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../cv.html">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    }
+  </script>
+
+</body>
+</html>
