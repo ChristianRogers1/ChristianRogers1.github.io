@@ -16,7 +16,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="publications.html">Publications</a></li>
-        <li><a href="cv.html" class="active">CV</a></li>
+        <li><a href="assets/Christian Rogers CV.pdf" target="_blank" class="active">CV</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle navigation">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -28,122 +28,19 @@
     </div>
   </nav>
 
-  <!-- CV Content -->
-  <div class="cv-page">
-    <div class="cv-header">
+  <!-- CV Download Page -->
+  <div class="cv-page" style="text-align: center; padding-top: 100px; padding-bottom: 100px;">
+    <div class="cv-header" style="border-bottom: none;">
       <h1>Curriculum Vitae</h1>
-      <p class="cv-subtitle">Christian Rogers &mdash; University of Utah</p>
+      <p class="cv-subtitle" style="margin-bottom: 32px;">Christian Rogers &mdash; University of Utah</p>
+      <a href="assets/Christian Rogers CV.pdf" download class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-size: 1rem; font-weight: 600; border-radius: 8px; text-decoration: none;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV (PDF)
+      </a>
+      <p style="margin-top: 20px; font-size: 0.9375rem; color: var(--color-text-tertiary);">
+        Or <a href="assets/Christian Rogers CV.pdf" target="_blank">open in browser</a>
+      </p>
     </div>
-
-    <!-- Education -->
-    <div class="cv-section">
-      <h2>Education</h2>
-      <div class="cv-entry">
-        <div class="cv-entry-header">
-          <span class="cv-entry-title">B.S./M.S. Computer Science (Accelerated Program)</span>
-          <span class="cv-entry-date">2023 &ndash; Present</span>
-        </div>
-        <div class="cv-entry-org">University of Utah, Salt Lake City, UT</div>
-        <p>Double major in Computer Science and Applied Mathematics.</p>
-      </div>
-    </div>
-
-    <!-- Research Experience -->
-    <div class="cv-section">
-      <h2>Research Experience</h2>
-
-      <div class="cv-entry">
-        <div class="cv-entry-header">
-          <span class="cv-entry-title">Undergraduate Researcher</span>
-          <span class="cv-entry-date">2024 &ndash; Present</span>
-        </div>
-        <div class="cv-entry-org">Aligned Robust Interactive Autonomy (ARIA) Lab &mdash; Dr. Daniel Brown</div>
-        <ul>
-          <li>Studying the mechanistic interpretability of reward models used in reinforcement learning from human feedback (RLHF)</li>
-          <li>Investigating how reward models internally represent and process learned human preferences</li>
-          <li>Contributing to research on AI alignment and transparency</li>
-        </ul>
-      </div>
-
-      <div class="cv-entry">
-        <div class="cv-entry-header">
-          <span class="cv-entry-title">Undergraduate Researcher</span>
-          <span class="cv-entry-date">2024 &ndash; Present</span>
-        </div>
-        <div class="cv-entry-org">Neural Plasticity, Rehabilitation &amp; Movement Dynamics (NERD) Lab &mdash; Dr. Sethi</div>
-        <ul>
-          <li>Developing interpretable machine learning methods for medical applications in telehealth</li>
-          <li>Analyzing real-world hand function data from wearable sensors to assess stroke recovery</li>
-          <li>Building ML pipelines for continuous remote monitoring of rehabilitation progress</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Publications -->
-    <div class="cv-section">
-      <h2>Publications</h2>
-      <div class="cv-entry">
-        <p>
-          Ukey et al. "Enhancing Stroke Recovery Assessment: A Machine Learning Approach to Real-World Hand Function Analysis." 2025.
-        </p>
-      </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="cv-section">
-      <h2>Selected Projects</h2>
-
-      <div class="cv-entry">
-        <div class="cv-entry-header">
-          <span class="cv-entry-title">DeepForge</span>
-        </div>
-        <p>GUI and library for automated design, training, and deployment of AI models with built-in neural architecture search and framework conversion (PyTorch/TensorFlow).</p>
-      </div>
-
-      <div class="cv-entry">
-        <div class="cv-entry-header">
-          <span class="cv-entry-title">ML-Lens</span>
-        </div>
-        <p>Interpretability toolkit for automated mechanistic analysis and visualization of trained models. Supports PyTorch, TensorFlow, and JAX.</p>
-      </div>
-
-      <div class="cv-entry">
-        <div class="cv-entry-header">
-          <span class="cv-entry-title">MathML Explorer</span>
-        </div>
-        <p>Interactive educational platform bridging applied mathematics and machine learning concepts for students and researchers.</p>
-      </div>
-    </div>
-
-    <!-- Skills -->
-    <div class="cv-section">
-      <h2>Technical Skills</h2>
-      <div class="cv-skills">
-        <span class="cv-skill">Python</span>
-        <span class="cv-skill">PyTorch</span>
-        <span class="cv-skill">TensorFlow</span>
-        <span class="cv-skill">JAX</span>
-        <span class="cv-skill">Machine Learning</span>
-        <span class="cv-skill">Mechanistic Interpretability</span>
-        <span class="cv-skill">Reinforcement Learning</span>
-        <span class="cv-skill">Signal Processing</span>
-        <span class="cv-skill">Applied Mathematics</span>
-        <span class="cv-skill">Data Analysis</span>
-      </div>
-    </div>
-
-    <!-- Contact -->
-    <div class="cv-section">
-      <h2>Contact</h2>
-      <div class="cv-entry">
-        <p>
-          <strong>Email:</strong> <a href="mailto:Christian.Rogers@utah.edu">Christian.Rogers@utah.edu</a><br>
-          <strong>GitHub:</strong> <a href="https://github.com/ChristianRogers1" target="_blank" rel="noopener">github.com/ChristianRogers1</a><br>
-          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/christianrogers1/" target="_blank" rel="noopener">linkedin.com/in/christianrogers1</a>
-        </p>
-      </div>
-    </div>
-
   </div>
 
   <!-- Footer -->
@@ -152,7 +49,7 @@
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="publications.html">Publications</a>
-        <a href="cv.html">CV</a>
+        <a href="assets/Christian Rogers CV.pdf" target="_blank">CV</a>
         <a href="mailto:Christian.Rogers@utah.edu">Email</a>
       </div>
       <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
