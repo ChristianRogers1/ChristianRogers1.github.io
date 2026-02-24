@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG LLM Interpretability Audit &mdash; Christian Rogers</title>
+  <meta name="description" content="Interpretability-Auditing for RAG LLMs in High-Regulation Contexts — Christian Rogers">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../projects.html" class="active">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../ChristianRogersCVFeb.pdf">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="project-detail">
+
+    <a href="../projects.html" class="back-link">&larr; All Projects</a>
+
+    <div class="project-detail-header">
+      <span class="project-status status-wip">In Progress</span>
+      <div class="project-period">October 2025 &ndash; Present</div>
+      <h1>Interpretability-Auditing for RAG LLMs in High-Regulation Contexts</h1>
+      <div class="tags">
+        <span class="tag">RAG</span>
+        <span class="tag">Sparse Autoencoders</span>
+        <span class="tag">Transcoders</span>
+        <span class="tag">Finance AI</span>
+        <span class="tag">Circuit Tracing</span>
+        <span class="tag">Provenance</span>
+      </div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      This project applies Sparse Autoencoders (SAEs) and Transcoder-based circuit tracing to Retrieval-Augmented Generation (RAG) LLM systems deployed in financial services. The goal is to provide auditable explanations of model behavior: specifically, to trace the chain of reasoning from retrieved documents through the model's internal computations to its final output, enabling compliance and explainability requirements to be met in high-regulation environments.
+    </p>
+
+    <h2>Background</h2>
+    <p>
+      Retrieval-Augmented Generation (RAG) systems address a core limitation of static LLMs by retrieving relevant documents at inference time and conditioning the model's response on that retrieved context. In regulated industries such as finance, healthcare, and law, RAG LLMs are appealing because they can ground responses in specific, citable documents. However, the mere presence of a retrieved document does not guarantee that the model's output faithfully reflects it&mdash;the model may partially ignore retrieved context, blend it with parametric knowledge, or hallucinate details.
+    </p>
+    <p>
+      Regulatory frameworks (e.g., financial advisory regulations, explainability requirements under emerging AI legislation) increasingly require that automated systems be able to explain the basis for their outputs. "It retrieved document X and that's what it generated" is not a sufficient explanation if we cannot verify whether the model's internal computation actually used that document in the way we believe.
+    </p>
+    <p>
+      Sparse Autoencoders decompose model activations into interpretable, monosemantic features. Transcoders extend this by providing a way to analyze how a model transforms inputs to outputs through an interpretable intermediate representation. Together, these tools allow us to trace <em>which retrieved content</em> causally influenced <em>which parts of the output</em> through <em>which internal circuits</em>.
+    </p>
+
+    <h2>Discussion</h2>
+    <p>
+      The audit pipeline works in three stages. First, we train or adapt SAEs on the target RAG LLM, obtaining a dictionary of interpretable features over the residual stream. Second, we use activation patching and transcoder analysis to construct a circuit graph showing which features activate in response to which retrieved passages, and how those features propagate through the model's layers to influence the final generation. Third, we produce a human-readable provenance report that maps each claim in the model's output to the features and retrieved passages that causally support it.
+    </p>
+    <p>
+      The reduction aspect of the project involves identifying and pruning circuits that do <em>not</em> correspond to legitimate retrieved-context reasoning&mdash;for instance, circuits that reflect parametric biases or hallucinated additions not grounded in any retrieved document. This circuit reduction can be used to produce a "cleaned" model that is more faithful to retrieved context.
+    </p>
+    <p>
+      The financial context provides a concrete evaluation environment: we can measure whether our provenance attributions align with compliance officer judgments about which document passages justify which output statements.
+    </p>
+
+    <div class="playground-placeholder">
+      <div class="playground-placeholder-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <h3>Interactive Playground</h3>
+      <p>A demo of provenance tracing on sample RAG queries is planned. Check back later.</p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../ChristianRogersCVFeb.pdf">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    }
+  </script>
+
+</body>
+</html>

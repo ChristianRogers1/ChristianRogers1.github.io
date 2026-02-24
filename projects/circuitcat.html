@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CircuitCat &mdash; Christian Rogers</title>
+  <meta name="description" content="CircuitCat: Open Source Digital Circuit Design Teaching Program and Simulator — Christian Rogers">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../projects.html" class="active">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../ChristianRogersCVFeb.pdf">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="project-detail">
+
+    <a href="../projects.html" class="back-link">&larr; All Projects</a>
+
+    <div class="project-detail-header">
+      <span class="project-status status-active">Completed</span>
+      <div class="project-period">November &ndash; December 2025</div>
+      <h1>CircuitCat &mdash; Open Source Digital Circuit Design Teaching Program &amp; Simulator</h1>
+      <div class="tags">
+        <span class="tag">Digital Logic</span>
+        <span class="tag">Education</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Simulator</span>
+        <span class="tag">Computer Organization</span>
+      </div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      CircuitCat is an open source interactive educational program designed to teach the fundamentals of digital circuit design, from basic logic gates through Arithmetic Logic Unit (ALU) construction and the principles of computer organization. The curriculum is delivered through guided mini-lessons narrated by a cat mascot, and the program includes a full circuit sandbox simulator where students can build and test their own circuits.
+    </p>
+
+    <h2>Background</h2>
+    <p>
+      Digital logic and computer organization are foundational topics in computer science and computer engineering education, yet they can be difficult to learn through textbooks alone. The gap between the abstract (truth tables, Boolean algebra) and the concrete (how a CPU adds two numbers) is wide, and many students struggle to bridge it without hands-on experimentation.
+    </p>
+    <p>
+      Existing tools like Logisim are powerful but have steep learning curves for beginners. CircuitCat was designed with a different philosophy: start with narrative-driven lessons that guide students through a carefully sequenced set of concepts, then transition to open-ended exploration in the simulator once students have built enough scaffolding to experiment meaningfully.
+    </p>
+    <p>
+      The cat mascot was chosen to create a friendly, low-stakes learning environment. The name "CircuitCat" reflects the combination of circuits and the mascot, and provides a memorable brand for an otherwise dry technical subject.
+    </p>
+
+    <h2>Curriculum and Simulator</h2>
+    <p>The lesson curriculum covers:</p>
+    <ul>
+      <li>Basic logic gates (AND, OR, NOT, NAND, NOR, XOR, XNOR) and truth tables</li>
+      <li>Boolean algebra and simplification</li>
+      <li>Combinational circuit design: multiplexers, decoders, encoders</li>
+      <li>Adder circuits: half adder, full adder, ripple-carry adder</li>
+      <li>ALU design: combining arithmetic and logic operations with an operation selector</li>
+      <li>Sequential logic: latches, flip-flops, registers</li>
+      <li>Introduction to computer organization: how an ALU, registers, and control logic combine into a simple CPU datapath</li>
+    </ul>
+    <p>
+      The simulator supports drag-and-drop placement of gates and components, wire drawing with correct signal propagation, clock stepping for sequential circuits, and a probe tool for inspecting signal values anywhere in a circuit.
+    </p>
+
+    <h2>Discussion</h2>
+    <p>
+      The most challenging aspect of building CircuitCat was the simulator's signal propagation engine. Digital circuits can contain feedback loops (e.g., in latches and flip-flops), which means a naive level-based evaluation algorithm will either loop infinitely or produce incorrect results. The simulator uses a queue-based event-driven propagation model that correctly handles combinational feedback and settles to stable states.
+    </p>
+    <p>
+      The pedagogical sequencing&mdash;deciding which concepts to introduce in which order, and at what point to remove training wheels and let students explore freely&mdash;required as much design work as the software itself.
+    </p>
+
+    <div class="playground-placeholder">
+      <div class="playground-placeholder-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <h3>Interactive Playground</h3>
+      <p>An embedded version of the CircuitCat simulator is planned for this page. Check back later.</p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../ChristianRogersCVFeb.pdf">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    }
+  </script>
+
+</body>
+</html>

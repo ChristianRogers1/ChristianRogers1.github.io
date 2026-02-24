@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog &mdash; Christian Rogers</title>
+  <meta name="description" content="Christian Rogers's blog: paper reproductions, interpretability experiments, and interactive ML playgrounds.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="ChristianRogersCVFeb.pdf">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Blog</h1>
+      <p>Paper reproductions, interpretability experiments, and interactive explorations of ML research in my domain.</p>
+    </div>
+  </div>
+
+  <!-- Blog Content -->
+  <div class="section">
+    <div class="container">
+      <div class="blog-list">
+
+        <div class="blog-coming-soon">
+          <div class="blog-coming-soon-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <line x1="10" y1="9" x2="8" y2="9"></line>
+            </svg>
+          </div>
+          <h3>Posts Coming Soon</h3>
+          <p>
+            This blog will feature reproductions of significant papers in mechanistic interpretability and related areas,
+            along with my own mini-extensions and experiments. Each post will include an embedded interactive playground
+            where you can run the models and experiments yourself in the browser.
+          </p>
+        </div>
+
+        <!-- Planned posts section -->
+        <div style="margin-top: 48px;">
+          <div class="projects-category-title">Planned Posts</div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px; opacity: 0.6;">
+
+            <div class="project-list-card" style="pointer-events: none; cursor: default;">
+              <div class="project-list-card-top">
+                <div class="project-list-card-title">Reproducing "A Mathematical Framework for Transformer Circuits" (Elhage et al., 2021)</div>
+                <div class="project-list-card-meta">
+                  <span class="project-status status-wip">Planned</span>
+                </div>
+              </div>
+              <div class="project-list-card-desc">
+                A from-scratch reproduction of the foundational circuit analysis framework, with interactive attention pattern visualizations and a sandbox for exploring induction heads and Q-K circuits in a small transformer.
+              </div>
+              <div class="tags">
+                <span class="tag">Circuits</span>
+                <span class="tag">Transformers</span>
+                <span class="tag">Induction Heads</span>
+              </div>
+            </div>
+
+            <div class="project-list-card" style="pointer-events: none; cursor: default;">
+              <div class="project-list-card-top">
+                <div class="project-list-card-title">Reproducing "Interpretability in the Wild: a Circuit for Indirect Object Identification" (Wang et al., 2022)</div>
+                <div class="project-list-card-meta">
+                  <span class="project-status status-wip">Planned</span>
+                </div>
+              </div>
+              <div class="project-list-card-desc">
+                Reproducing the IOI circuit discovery and implementing an interactive activation patching demo where you can ablate specific heads and see the effect on indirect object identification in real time.
+              </div>
+              <div class="tags">
+                <span class="tag">IOI</span>
+                <span class="tag">Circuit Discovery</span>
+                <span class="tag">Activation Patching</span>
+              </div>
+            </div>
+
+            <div class="project-list-card" style="pointer-events: none; cursor: default;">
+              <div class="project-list-card-top">
+                <div class="project-list-card-title">Reproducing "Sparse Autoencoders Find Highly Interpretable Features in Language Models" (Cunningham et al., 2023)</div>
+                <div class="project-list-card-meta">
+                  <span class="project-status status-wip">Planned</span>
+                </div>
+              </div>
+              <div class="project-list-card-desc">
+                Training a sparse autoencoder on a small language model and building an interactive feature browser to explore learned features, their activation patterns, and their effects on model behavior.
+              </div>
+              <div class="tags">
+                <span class="tag">Sparse Autoencoders</span>
+                <span class="tag">Feature Decomposition</span>
+                <span class="tag">Monosemanticity</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="publications.html">Publications</a>
+        <a href="projects.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="ChristianRogersCVFeb.pdf">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    }
+  </script>
+
+</body>
+</html>

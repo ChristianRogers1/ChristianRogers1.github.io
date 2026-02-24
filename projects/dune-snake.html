@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dune Snake &mdash; Christian Rogers</title>
+  <meta name="description" content="Networked Online Multiplayer Video Game in C# — Christian Rogers">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../projects.html" class="active">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../ChristianRogersCVFeb.pdf">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="project-detail">
+
+    <a href="../projects.html" class="back-link">&larr; All Projects</a>
+
+    <div class="project-detail-header">
+      <span class="project-status status-active">Completed</span>
+      <div class="project-period">March &ndash; April 2025</div>
+      <h1>Networked Online Multiplayer Video Game in C#</h1>
+      <div class="tags">
+        <span class="tag">C#</span>
+        <span class="tag">Networking</span>
+        <span class="tag">Game Dev</span>
+        <span class="tag">Multiplayer</span>
+        <span class="tag">TCP/IP</span>
+      </div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      A fully networked online multiplayer version of Snake, themed after the <em>Dune</em> universe (sandworms, spice harvesting, Arrakis desert aesthetic), with a live server-side leaderboard. Built in C# as a class project focused on networked software development. Multiple players connect to a central server and compete in real time, with the leaderboard updating live as the game progresses.
+    </p>
+
+    <h2>Background</h2>
+    <p>
+      Snake is a classic game with deceptively simple mechanics: a player controls a growing line that must avoid colliding with walls and itself while collecting items. Its simplicity makes it an ideal vehicle for exploring networked game development, because the core game state is small and well-defined, but the networking challenges are representative of real multiplayer games.
+    </p>
+    <p>
+      The <em>Dune</em> theme was chosen for creative flavor. Players control sandworms navigating the Arrakis desert, collecting spice (the items), and the leaderboard tracks spice accumulated by each player. The thematic coherence made the project more enjoyable to develop and more entertaining to play.
+    </p>
+    <p>
+      The class prompt required implementing a client-server architecture with multiple simultaneous clients, demonstrating understanding of socket programming, network protocols, and concurrent server design.
+    </p>
+
+    <h2>Technical Details</h2>
+    <p>The architecture uses a client-server model with a dedicated game server:</p>
+    <ul>
+      <li><strong>Server:</strong> A C# TCP server managing game state (all worm positions, spice locations, scores) and broadcasting updates to all connected clients at a fixed tick rate. The server is the authoritative source of truth for all game state.</li>
+      <li><strong>Client:</strong> Connects to the server over TCP, sends player input events, receives game state updates, and renders the current state. The client does minimal local prediction.</li>
+      <li><strong>Protocol:</strong> A custom binary protocol over TCP with message framing. Messages include: join/leave, player input, full state snapshot, delta state update, and leaderboard update.</li>
+      <li><strong>Leaderboard:</strong> Maintained server-side and broadcast to all clients on each score change.</li>
+      <li><strong>Concurrency:</strong> The server uses async I/O (C# async/await with Socket) to handle multiple clients without blocking, with a single-threaded game loop for state updates to avoid race conditions.</li>
+    </ul>
+
+    <h2>Discussion</h2>
+    <p>
+      The most technically challenging aspect was handling the fundamental tension in multiplayer games between consistency and responsiveness. With a pure server-authoritative model, every player action must make a round trip to the server before the player sees any response, which feels laggy. With pure client-side prediction, clients can desync.
+    </p>
+    <p>
+      For this project, the chosen approach was server-authoritative with no client-side prediction, which is correct but produces noticeable input lag on high-latency connections. The leaderboard&mdash;pushed from the server to all clients whenever scores change&mdash;required careful handling to avoid flooding clients with updates when many players are scoring simultaneously.
+    </p>
+    <p>
+      The project was a strong introduction to the realities of networked software: that the happy path (everyone connected, low latency, no packet loss) is easy, but handling disconnections, reconnections, and network jitter gracefully requires deliberate engineering.
+    </p>
+
+    <div class="playground-placeholder">
+      <div class="playground-placeholder-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <h3>Interactive Playground</h3>
+      <p>A browser-based version of the game with WebSocket networking is planned. Check back later.</p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../ChristianRogersCVFeb.pdf">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    }
+  </script>
+
+</body>
+</html>

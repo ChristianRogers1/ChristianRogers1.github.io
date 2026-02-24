@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piskari &mdash; Christian Rogers</title>
+  <meta name="description" content="Piskari: Open Source Pixel Art and Animation Editor — Christian Rogers">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../projects.html" class="active">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../ChristianRogersCVFeb.pdf">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="project-detail">
+
+    <a href="../projects.html" class="back-link">&larr; All Projects</a>
+
+    <div class="project-detail-header">
+      <span class="project-status status-active">Completed</span>
+      <div class="project-period">October &ndash; November 2025</div>
+      <h1>Piskari &mdash; Open Source Pixel Art &amp; Animation Editor</h1>
+      <div class="tags">
+        <span class="tag">Pixel Art</span>
+        <span class="tag">Animation</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Graphics</span>
+      </div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      Piskari is a minimal, open source pixel art and animation editor built as a class project. The design philosophy emphasizes simplicity and focus: Piskari does one thing (pixel art animation) and does it cleanly, without the complexity of a full-featured graphics suite. The name "Piskari" is Finnish for "pixel" (a play on the Finnish word <em>pikselitaiteilija</em>, pixel artist).
+    </p>
+
+    <h2>Background</h2>
+    <p>
+      The pixel art tooling landscape has a few dominant players&mdash;Aseprite is the community standard for animating pixel art&mdash;but most are either proprietary, expensive for students, or have significant feature bloat that makes them difficult to use for simple projects. Open source alternatives tend to be unmaintained or have poor animation support.
+    </p>
+    <p>
+      The class project prompt was to build a useful piece of software with a well-designed user interface. Pixel art editors are an interesting domain for UX design because the core interaction (placing individual pixels) is deceptively simple, but the full workflow (layer management, frame animation, palette management, export) quickly becomes complex. The challenge is keeping the tool feeling lightweight while still supporting a real creative workflow.
+    </p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Canvas with configurable pixel grid (up to 128x128 pixels)</li>
+      <li>Drawing tools: pencil, eraser, fill bucket, color picker (eyedropper), rectangle and ellipse selection</li>
+      <li>Layer system with blending modes and opacity control</li>
+      <li>Frame-based animation timeline with configurable frame duration</li>
+      <li>Onion skinning for animation reference</li>
+      <li>Palette editor with import/export support (GPL format)</li>
+      <li>Export to PNG (single frame or sprite sheet) and GIF (animated)</li>
+      <li>Keyboard shortcut system modeled on Aseprite for familiarity</li>
+    </ul>
+
+    <h2>Discussion</h2>
+    <p>
+      The most technically interesting part of building Piskari was the animation preview and GIF export. GIF is a notoriously tricky format: it supports only 256 colors per frame and uses a palette-per-frame model that requires careful color quantization. Getting smooth, small-file-size animated GIF export required implementing a median-cut color quantizer and a delta-frame encoder that only writes changed pixels to subsequent frames.
+    </p>
+    <p>
+      From a UX perspective, the most difficult decision was determining what <em>not</em> to include. Every feature request adds complexity to the interface, and pixel art tools in particular have a strong community culture around workflow preferences. Keeping Piskari minimal required deliberate scope management and saying no to individually reasonable feature requests.
+    </p>
+    <p>
+      The project is open source, and the codebase is structured to be approachable for contributors interested in graphics tooling.
+    </p>
+
+    <div class="playground-placeholder">
+      <div class="playground-placeholder-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <h3>Interactive Playground</h3>
+      <p>An embedded, browser-based version of Piskari is planned for this page. Check back later.</p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../ChristianRogersCVFeb.pdf">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    }
+  </script>
+
+</body>
+</html>
