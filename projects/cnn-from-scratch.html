@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNN from Scratch in C++ &mdash; Christian Rogers</title>
+  <meta name="description" content="Convolutional Neural Network from Scratch in C++ with 92% MNIST Accuracy — Christian Rogers">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../projects.html" class="active">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../ChristianRogersCVFeb.pdf">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="project-detail">
+
+    <a href="../projects.html" class="back-link">&larr; All Projects</a>
+
+    <div class="project-detail-header">
+      <span class="project-status status-active">Completed</span>
+      <div class="project-period">August 2024</div>
+      <h1>Convolutional Neural Network from Scratch in C++ &mdash; 92% MNIST Accuracy</h1>
+      <div class="tags">
+        <span class="tag">C++</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Autodiff</span>
+        <span class="tag">MNIST</span>
+        <span class="tag">Backpropagation</span>
+      </div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      Built a complete neural network implementation from scratch in C++, with no machine learning library dependencies. The implementation includes: a tensor class with numerical operations, a reverse-mode automatic differentiation (autodiff) engine, layer definitions (fully-connected, convolutional, pooling, activation), a training loop with mini-batch stochastic gradient descent, and a data loader for the MNIST dataset. The network achieved <strong>92% classification accuracy</strong> on the MNIST handwritten digit test set.
+    </p>
+
+    <h2>Background</h2>
+    <p>
+      Most deep learning practitioners work through high-level frameworks like PyTorch or TensorFlow, which abstract away the mathematical machinery underlying gradient computation and parameter updates. While these frameworks are invaluable for research productivity, they can obscure the details that matter most for understanding model behavior from the ground up.
+    </p>
+    <p>
+      This project was motivated by the desire to have a complete, first-principles understanding of how neural networks work computationally&mdash;not just mathematically on a chalkboard, but in terms of actual memory layout, numerical precision, and the specific data structures that make backpropagation efficient. C++ was chosen for its directness: there are no garbage collectors, no dynamic dispatch overheads, and no hidden copies, so every design decision is visible and consequential.
+    </p>
+
+    <h2>Technical Details</h2>
+    <p>The implementation covers the full stack:</p>
+    <ul>
+      <li><strong>Tensor class:</strong> A multi-dimensional array class with shape tracking, memory management, and support for basic arithmetic, matrix multiplication, and broadcasting.</li>
+      <li><strong>Autodiff engine:</strong> A dynamic computation graph using reverse-mode automatic differentiation. Each operation records its inputs and a backward function (closure) in a graph node. Backpropagation traverses the graph in reverse topological order, accumulating gradients.</li>
+      <li><strong>Layers:</strong> Linear (fully-connected), Conv2D (with configurable kernel size, stride, and padding), MaxPool2D, ReLU, Softmax, and cross-entropy loss.</li>
+      <li><strong>Optimizer:</strong> Mini-batch SGD with configurable learning rate and momentum.</li>
+      <li><strong>Data pipeline:</strong> MNIST binary file parser, batch sampler, and basic data augmentation (random horizontal flips).</li>
+    </ul>
+    <p>
+      The final architecture was a small CNN: two convolutional blocks (conv + ReLU + max pool), followed by two fully-connected layers with a softmax output over 10 digit classes.
+    </p>
+
+    <h2>Discussion</h2>
+    <p>
+      The most instructive part of this project was implementing the autodiff engine. Unlike symbolic differentiation, reverse-mode autodiff requires tracking a runtime computation graph and ensuring that gradient flow is correctly accumulated when a node is referenced multiple times (i.e., handling shared subexpressions). Getting this right in C++ without reference counting headaches required careful design of the node ownership model.
+    </p>
+    <p>
+      The 92% accuracy figure is below what a well-tuned modern CNN achieves on MNIST (&gt;99%), but the point was not to maximize accuracy with regularization tricks&mdash;it was to validate that the entire computational pipeline (forward pass, loss computation, backpropagation, weight update) was numerically correct and producing reasonable learning dynamics.
+    </p>
+    <p>
+      This project directly informed my later mechanistic interpretability research: having implemented the mathematical objects (activations, gradients, Jacobians) by hand gives strong intuitions for what patching experiments measure and what the limitations of gradient-based attribution methods are.
+    </p>
+
+    <div class="playground-placeholder">
+      <div class="playground-placeholder-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <h3>Interactive Playground</h3>
+      <p>A WebAssembly-compiled version of the CNN for in-browser digit classification is planned. Check back later.</p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../ChristianRogersCVFeb.pdf">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    }
+  </script>
+
+</body>
+</html>

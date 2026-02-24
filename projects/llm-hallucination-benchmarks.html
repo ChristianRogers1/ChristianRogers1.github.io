@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Causal Hallucination Benchmarks &mdash; Christian Rogers</title>
+  <meta name="description" content="Towards Causal Benchmarks for LLM Hallucination — Christian Rogers">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../projects.html" class="active">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../ChristianRogersCVFeb.pdf">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="project-detail">
+
+    <a href="../projects.html" class="back-link">&larr; All Projects</a>
+
+    <div class="project-detail-header">
+      <span class="project-status status-wip">In Progress</span>
+      <div class="project-period">January 2026 &ndash; Present</div>
+      <h1>Towards Causal Benchmarks for LLM Hallucination</h1>
+      <div class="tags">
+        <span class="tag">LLM Hallucination</span>
+        <span class="tag">Causal Circuits</span>
+        <span class="tag">Benchmarking</span>
+        <span class="tag">ConeCUT</span>
+        <span class="tag">Mechanistic Interpretability</span>
+      </div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      This project builds a benchmark that identifies and ranks the tendency of language models to hallucinate based on their <em>internal circuit structures</em>, rather than purely on output-level evaluation. Using an approach inspired by ConeCUT&mdash;a technique for discovering and cutting causal circuits within neural networks&mdash;we construct tasks and metrics that expose hallucination-prone internal mechanisms and allow for principled ranking of models by their structural hallucination risk.
+    </p>
+
+    <h2>Background</h2>
+    <p>
+      Hallucination in large language models is one of the most pressing reliability problems in applied AI. A model "hallucinates" when it generates confident, fluent text that is factually incorrect or unsupported by its context. Existing benchmarks (e.g., TruthfulQA, HaluEval) evaluate hallucination post-hoc by inspecting model outputs on curated question sets. This approach has a fundamental limitation: it measures the <em>symptom</em>, not the <em>cause</em>.
+    </p>
+    <p>
+      An output-level benchmark cannot distinguish between a model that hallucinates rarely because it has good internal factual representations versus one that hallucinates rarely on those particular test prompts due to surface-level patterns. Two models can achieve the same score on an output-level benchmark while having completely different internal mechanisms, and thus different failure modes in deployment.
+    </p>
+    <p>
+      ConeCUT and related circuit-discovery methods from mechanistic interpretability allow us to identify specific circuits within a model that are causally responsible for particular behaviors. The hypothesis behind this project is that hallucination-prone models have identifiable circuit signatures: e.g., factual recall circuits that are weak or easily overridden, attention heads that over-rely on positional or syntactic cues rather than semantic content, or suppression mechanisms that fail to inhibit false continuations.
+    </p>
+
+    <h2>Discussion</h2>
+    <p>
+      The benchmark pipeline works as follows: given a model, we run a suite of diagnostic prompts designed to isolate factual recall, counterfactual resistance, and context grounding. We then apply ConeCUT-style causal tracing to identify which internal circuits activate during correct versus incorrect responses. The resulting circuit signatures form a fingerprint of the model's hallucination profile, and this fingerprint is used to rank models.
+    </p>
+    <p>
+      A key advantage of this approach is predictivity: if internal circuit signatures predict hallucination behavior better than output-level metrics alone, then the benchmark can identify latent hallucination risk in models that have not yet been deployed or tested on the specific failure-mode prompts that matter in production.
+    </p>
+    <p>
+      The project is currently in the experimental phase, validating circuit-level predictions against known hallucination behaviors across a set of open-source language models.
+    </p>
+
+    <div class="playground-placeholder">
+      <div class="playground-placeholder-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <h3>Interactive Playground</h3>
+      <p>A demo allowing you to run circuit-level hallucination probes on sample prompts is planned. Check back later.</p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../ChristianRogersCVFeb.pdf">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    }
+  </script>
+
+</body>
+</html>

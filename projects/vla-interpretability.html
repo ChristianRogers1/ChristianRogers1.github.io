@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLA Interpretability &mdash; Christian Rogers</title>
+  <meta name="description" content="Interpretability of Embodied VLAs and Cross-Modal Circuit Tracing — Christian Rogers">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">Christian Rogers</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../projects.html" class="active">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../ChristianRogersCVFeb.pdf">CV</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="project-detail">
+
+    <a href="../projects.html" class="back-link">&larr; All Projects</a>
+
+    <div class="project-detail-header">
+      <span class="project-status status-wip">In Progress</span>
+      <div class="project-period">January 2026 &ndash; Present</div>
+      <h1>Interpretability of Embodied VLAs and Cross-Modal Circuit Tracing</h1>
+      <div class="tags">
+        <span class="tag">Mechanistic Interpretability</span>
+        <span class="tag">VLAs</span>
+        <span class="tag">Circuit Tracing</span>
+        <span class="tag">Cross-Modal</span>
+        <span class="tag">Embodied AI</span>
+      </div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      This project develops both the theory and experimental methodology for tracing causal circuits across multiple, heterogeneous ML model types that are composed together in a single pipeline. The primary application domain is Vision-Language-Action (VLA) models: systems that combine a vision encoder, a language model, and an action policy to control a robot or agent from natural language instructions and visual input.
+    </p>
+    <p>
+      The core challenge is that mechanistic interpretability techniques developed for single-modality transformers (e.g., activation patching, attention head analysis, circuit discovery) do not straightforwardly transfer to multi-component pipelines where representations must be translated between fundamentally different model architectures and representation spaces. We are developing a framework for cross-modal circuit tracing that can follow a causal chain of computation across these boundaries.
+    </p>
+
+    <h2>Background</h2>
+    <p>
+      VLAs represent one of the most promising directions in embodied AI, allowing robots and agents to follow open-ended natural language instructions while perceiving rich visual scenes. However, as these systems are deployed in real-world settings, understanding <em>why</em> they produce particular actions becomes critical for safety, debugging, and alignment.
+    </p>
+    <p>
+      Existing interpretability methods are largely designed for single-model analysis. Techniques like activation patching (from the ROME and causal tracing literature) and sparse autoencoder feature decomposition (from the Anthropic and EleutherAI mechanistic interpretability programs) assume a single unified model. In a VLA, a vision encoder may produce patch embeddings that are fed into a language model via a projection layer, which then conditions an action diffusion policy. Each of these components has its own internal representation geometry.
+    </p>
+    <p>
+      Cross-modal circuit tracing requires solving new problems: How do we identify meaningful circuits that span the projection boundary? How do we attribute an action decision causally to features in the visual input versus the language instruction? What are the correct primitives for circuit analysis in diffusion-based action policies?
+    </p>
+
+    <h2>Discussion</h2>
+    <p>
+      The project is developing both theoretical tools and empirical benchmarks. On the theoretical side, we are working out a formalism for defining "circuits" in a compositional pipeline where modules have different architectures, and developing methods for propagating causal attribution across module boundaries.
+    </p>
+    <p>
+      On the experimental side, we are running activation patching and sparse autoencoder experiments on open-source VLA models, building a library of known circuits corresponding to specific behaviors, and testing whether the same circuit structures generalize across model scale and training variations.
+    </p>
+    <p>
+      This work connects to broader goals in AI safety: understanding the internal decision-making of embodied agents before they are deployed in high-stakes physical environments.
+    </p>
+
+    <div class="playground-placeholder">
+      <div class="playground-placeholder-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <h3>Interactive Playground</h3>
+      <p>An interactive circuit visualization and activation patching demo is planned for this project. Check back later.</p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../ChristianRogersCVFeb.pdf">CV</a>
+        <a href="mailto:Christian.Rogers@utah.edu">Email</a>
+      </div>
+      <p>&copy; 2025 Christian Rogers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    }
+  </script>
+
+</body>
+</html>
