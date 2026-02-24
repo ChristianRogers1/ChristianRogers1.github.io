@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-
   <!-- Navigation -->
   <nav class="nav">
     <div class="container">
@@ -31,34 +30,53 @@
   <!-- Publication Detail -->
   <div class="pub-detail">
     <a href="../publications.html" class="back-link">&larr; Back to Publications</a>
-
     <h1>Enhancing Stroke Recovery Assessment: A Machine Learning Approach to Real-World Hand Function Analysis</h1>
 
     <div class="pub-meta">
-      <p class="pub-authors">Ukey et al.</p>
-      <p class="pub-venue">2025</p>
+      <p class="pub-authors">Janmesh Ukey, Christian Rogers, Scott Uhlrich, Murat Akcakaya, Amit Sethi</p>
+      <p class="pub-venue">International Journal of Medical Informatics, 204 (2025) 106077</p>
     </div>
 
     <h2>Overview</h2>
     <p>
-      This work presents a machine learning approach to assessing stroke recovery through analysis of real-world hand function data. By leveraging sensor data collected in naturalistic settings rather than controlled clinical environments, we develop methods that provide a more accurate and comprehensive picture of a patient's functional recovery trajectory.
+      Hand weakness is a leading cause of long-term disability among stroke survivors, severely limiting daily activities and quality of life. While wrist-worn accelerometers offer an objective means of measuring upper limb use in real-world settings, traditional metrics — such as movement duration and interlimb ratios — provide limited clinical insight. When combined with unsupervised clustering, these heuristic measures frequently produce groups with substantial overlap on validated clinical scales like the Action Research Arm Test (ARAT).
+    </p>
+    <p>
+      This paper presents a supervised machine learning framework that classifies post-stroke upper limb performance from 24-hour accelerometer recordings in a way that aligns with clinically validated ARAT scores. A deep neural network (DNN) extracts latent features directly from raw triaxial accelerometer data, which are then used alongside demographic and heuristic accelerometry variables in a random forest classifier to categorize participants into five distinct performance groups.
     </p>
 
-    <h2>Key Contributions</h2>
+    <h2>Methods</h2>
+    <p>
+      The study analyzed data from 211 participants across three cohorts: individuals with acute/subacute stroke (n = 57, tracked 2 weeks to 6 months post-stroke), individuals with chronic stroke (n = 78, more than 6 months post-stroke), and neurologically intact adults serving as controls (n = 76). Participants wore ActiGraph GTX3 accelerometers on both wrists during 24-hour periods outside clinical settings.
+    </p>
+    <p>
+      Participants were grouped into five ARAT-based functional categories: No Function (0–10), Poor (11–21), Limited (22–42), Notable (43–54), and Full (55–57). Per-second acceleration magnitudes were computed and segmented into 30-minute windows, with segments showing over 90% inactivity removed. A DNN with hidden layers of sizes 128, 32, and 8 learns an 8-dimensional latent representation per segment; participant-level representations are formed by averaging across all valid segments. These latent features, combined with five heuristic accelerometer variables (paretic limb duration, non-paretic limb duration, median paretic limb acceleration, paretic limb variability, and use ratio) and demographic variables, are fed into a random forest classifier evaluated via 10-fold cross-validation.
+    </p>
+
+    <h2>Key Results</h2>
     <ul>
-      <li>Development of ML models for analyzing real-world hand function data from stroke survivors</li>
-      <li>Demonstration that real-world assessment provides complementary insights to standard clinical evaluations</li>
-      <li>A framework for continuous, remote monitoring of stroke recovery progress</li>
-      <li>Validation of the approach against established clinical outcome measures</li>
+      <li>The full model (latent + accelerometer + participant variables) achieved <strong>97% classification accuracy</strong>, compared to only 66% for models using demographics and heuristic accelerometry features alone.</li>
+      <li>Latent features alone achieved 96% accuracy, demonstrating that the DNN captures the most predictive information directly from raw sensor data.</li>
+      <li>PCA visualization of the latent space shows well-separated, non-overlapping clusters corresponding to the five ARAT categories — a marked improvement over prior unsupervised clustering approaches.</li>
+      <li>Saliency map analysis revealed a clear, monotonic trend: as upper limb performance improves, the contribution of the paretic/non-dominant limb to model predictions progressively increases, consistent with clinical expectations of motor recovery.</li>
+      <li>SHAP analysis confirmed that all eight latent variables dominate feature importance, with Months Post-Stroke and Use Ratio contributing secondarily. Demographic variables (Gender, Race, Ethnicity) showed minimal impact.</li>
+      <li>Across the five functional categories, paretic hand active duration ranged from a mean of 1.7 h/day (None) to 7.8 h/day (Full), and use ratio from 0.33 to 0.95 — demonstrating clear, monotonic progression aligned with ARAT bands.</li>
     </ul>
 
-    <h2>Relevance</h2>
+    <h2>Significance</h2>
     <p>
-      Traditional stroke recovery assessment relies on periodic clinical visits where patients perform standardized tasks in controlled settings. This approach captures only a snapshot of function and may not reflect how patients use their affected hand in daily life. Our machine learning approach analyzes data from wearable sensors during everyday activities, offering clinicians a richer, more ecologically valid view of recovery that can inform personalized treatment plans.
+      Traditional stroke recovery assessment relies on periodic clinical visits using standardized tasks in controlled environments. These episodic snapshots may not reflect how patients actually use their affected hand in daily life, and gains measured in the clinic frequently do not transfer to real-world function. This work bridges that gap by aligning continuous, passive wearable sensor data with validated clinical capacity scores, enabling each ARAT score to map to a distinct real-world performance profile.
     </p>
     <p>
-      This research was conducted in collaboration with the Neural Plasticity, Rehabilitation &amp; Movement Dynamics (NERD) Lab under Dr. Sethi at the University of Utah.
+      The framework is designed for scalability and automation — reducing reliance on manual clinical assessments while providing patients and clinicians with actionable, data-driven insights to support personalized rehabilitation planning and outcome monitoring. Future directions include incorporating recurrent or transformer architectures to better capture sequential dynamics, and external validation on independent datasets to support broader clinical adoption.
     </p>
+    <p>
+      This research was conducted in collaboration with the Department of Occupational &amp; Recreational Therapies, the Kahlert School of Computing, the Department of Mechanical Engineering, and the Department of Biomedical Engineering at the University of Utah, as well as the Department of Electrical &amp; Computer Engineering at the University of Pittsburgh, under the supervision of Dr. Amit Sethi.
+    </p>
+
+    <div class="pub-links" style="margin-top: 2rem;">
+      <a href="https://doi.org/10.1016/j.ijmedinf.2025.106077" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.ijmedinf.2025.106077</a>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -83,6 +101,5 @@
       });
     }
   </script>
-
 </body>
 </html>
